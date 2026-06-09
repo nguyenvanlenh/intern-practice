@@ -7,6 +7,11 @@ function App() {
   return (
     <div>
       <h1>Intern Practice</h1>
+      <ul>
+        {students.map(student => (
+          <li key = {student.id}> {student.name} - {student.class} - {student.hobbies}</li>
+        ))}
+      </ul>
     </div>
   )
 }

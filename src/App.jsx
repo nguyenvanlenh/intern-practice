@@ -1,8 +1,7 @@
 import './App.css'
-import { students } from './data/mock'
 import { useState } from 'react'
 function App() {
-  console.log(students)
+  const [students, setStudents] = useState([])
   
   const [searchTerm, setSearchTerm] = useState('') //lưu từ khóa tìm kiếm
   const [searchQuery, setSearchQuery] = useState('') //lưu kết quả tìm kiếm

@@ -6,7 +6,7 @@ function App() {
   const [students, setStudents] = useState([])
   const [searchTerm, setSearchTerm] = useState('') // lưu từ khóa tìm kiếm
   const [searchQuery, setSearchQuery] = useState('') // lưu từ khóa đã submit
-
+  
   useEffect(() => {
     getStudents().then(data => {
       setStudents(data)
@@ -23,6 +23,8 @@ function App() {
     setSearchQuery('')
   }
 
+  const isResetVisible = searchTerm || searchQuery
+
   const filteredStudents = students.filter(student =>
     student.name.toLowerCase().includes(searchQuery.toLowerCase())
   )
@@ -38,7 +40,9 @@ function App() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button type="submit">Search</button>
-        <button type="button" onClick={handleReset}>Reset</button>
+        {isResetVisible && (
+          <button type="button" onClick={handleReset}>Reset</button>
+        )}
       </form>
 
       <ul>

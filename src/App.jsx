@@ -28,8 +28,10 @@ function App() {
   const filteredStudents = students.filter(student =>
     student.name.toLowerCase().includes(searchQuery.toLowerCase())
   )
-
-  return (
+  // array fuction: filter, includes, map, reduce, find
+  // toán tử 3 ngôi condition ? true : false
+  // useState, useEffect
+   return (
     <div>
       <h1>Intern Practice</h1>
       <form onSubmit={handleSearch}>
@@ -40,8 +42,8 @@ function App() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button type="submit">Search</button>
-        {isResetVisible && (
-          <button type="button" onClick={handleReset}>Reset</button>
+        {searchQuery && (
+          <button type="button" onClick={handleReset}>Reset</button> 
         )}
       </form>
 
